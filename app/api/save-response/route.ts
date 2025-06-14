@@ -1,7 +1,7 @@
 // MongoDB API route logic
 import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/db';
-import Assessment from '@/model/Assessment';
+import Assessment from '../../model/Assessment';
 
 export async function POST(req: Request) {
   try {
