@@ -1,10 +1,14 @@
 // Stripe intent logic
 import { NextResponse } from 'next/server';
-import  stripe  from '@/lib/payment';
+import stripe from '@/lib/payment';
 
 export async function POST(req: Request) {
   try {
     const { amount, currency = 'inr', customerEmail } = await req.json();
+
+    if (!amount || typeof amount !== 'number') {
+      return NextResponse.json({ error: 'Invalid amount' }, { status: 400 });
+    }
 
     const paymentIntent = await stripe.paymentIntents.create({
       amount,
@@ -21,3 +25,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 }
+
