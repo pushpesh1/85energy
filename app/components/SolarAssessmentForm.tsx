@@ -13,6 +13,7 @@ export default function SolarAssessmentForm() {
     hasBattery: false,
     quotationBasis: 'Monthly Consumption',
     monthlyKwh: '',
+    panel: '',
   });
 
   const update = (key: string, value: any) => {
