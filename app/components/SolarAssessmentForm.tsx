@@ -14,6 +14,7 @@ export default function SolarAssessmentForm() {
     quotationBasis: 'Monthly Consumption',
     monthlyKwh: '',
     panel: '',
+    inverter: '',
   });
 
   const update = (key: string, value: any) => {
